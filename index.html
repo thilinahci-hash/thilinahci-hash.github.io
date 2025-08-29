@@ -124,7 +124,7 @@
     /* Hero Section */
     #home {
       height: 100vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto-format&fit=crop') no-repeat center center/cover;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -263,12 +263,51 @@
       border: none;
     }
 
-    /* Footer */
+    /* Footer - UPDATED */
     footer {
       background: var(--text-dark);
       color: var(--text-light);
+      padding: 50px 0 20px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-section h4 {
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p {
+      line-height: 1.8;
+    }
+
+    .footer-section a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--secondary-color);
+    }
+
+    .footer-bottom {
       text-align: center;
-      padding: 30px 0;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      font-size: 0.9rem;
     }
 
     /* Responsive Design */
@@ -317,6 +356,11 @@
 
       #about .about-content {
         flex-direction: column;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
@@ -379,7 +423,7 @@
           <div class="card-content"><h3>India</h3><p>A vibrant tapestry of cultures, colors, and history. From the iconic Taj Mahal to the spiritual banks of the Ganges, India's diversity will mesmerize you.</p></div>
         </div>
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1974&auto=format&fit=crop" alt="Gardens by the Bay in Singapore">
+          <img src="https://images.unsplash.com/photo-152562529_3386-3f8f99389edd?q=80&w=1974&auto=format&fit=crop" alt="Gardens by the Bay in Singapore">
           <div class="card-content"><h3>Singapore</h3><p>Discover the futuristic "Lion City." Marvel at stunning architecture, indulge in world-class shopping, and savor a melting pot of culinary delights.</p></div>
         </div>
         <div class="card">
@@ -406,7 +450,24 @@
 
 <footer>
   <div class="container">
-    <p>&copy; 2025 Halloluwa Tours. All Rights Reserved.</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Address</h4>
+        <p>No97, Polgahahena Road,<br>Batagama South, Kandana,<br>Sri Lanka</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>📞 <a href="tel:0777719830">077 771 9830</a></p>
+        <p>📞 <a href="tel:0719719830">071 971 9830</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <p><a href="https://www.facebook.com/halloluwatours" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Halloluwa Tours. All Rights Reserved.</p>
+    </div>
   </div>
 </footer>
 
