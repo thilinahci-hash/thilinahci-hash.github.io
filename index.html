@@ -1,381 +1,478 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Halloluwa Tours — Group Tours from Sri Lanka</title>
-  <meta name="description" content="Halloluwa Tours — Group tours from Sri Lanka to India, Thailand, Singapore, and Malaysia. 30+ years of experience leading tour groups." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halloluwa Tours - Your Group Tour Specialists</title>
   <style>
-    :root{
-      --bg:#0f172a;           /* slate-900 */
-      --surface:#0b1b2a;      /* deep blue */
-      --muted:#93a4b8;        /* slate-400 */
-      --text:#e6eef5;
-      --brand:#19b2ff;        /* sky */
-      --accent:#00e0a4;       /* lagoon */
-      --gold:#f3c969;         /* highlight */
-      --card: rgba(255,255,255,.06);
-      --border: rgba(255,255,255,.14);
-      --radius: 18px;
-      --shadow: 0 16px 40px rgba(0,0,0,.35);
+    /* CSS Styles */
+    :root {
+      --primary-color: #0077b6;
+      --secondary-color: #70c1b3;
+      --text-dark: #333;
+      --text-light: #f4f4f4; /* Made slightly softer than pure white */
+      --background-light: #f8f9fa;
+      --header-dark-bg: #2c3e50; /* New dark color for the header */
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;background:linear-gradient(180deg,#0b1220, #0e2030 40%, #0b1220);color:var(--text);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
-    a{color:inherit}
-    img{max-width:100%;display:block}
 
-    /* Layout */
-    .container{max-width:1200px;margin:0 auto;padding:0 1.25rem}
-    header.nav{
-      position:sticky;top:0;z-index:60;backdrop-filter:saturate(140%) blur(10px);
-      background: rgba(5,12,22,.6); border-bottom:1px solid var(--border);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
-    .brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:.4px}
-    .brand-mark{width:40px;height:40px;border-radius:12px;border:1px solid var(--border);display:grid;place-items:center;background:linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.02))}
-    $1
-    .brand-mark img{width:26px;height:26px;display:block;object-fit:contain}
-    .brand span{font-family:Poppins, Inter, sans-serif;font-size:1.05rem}
-    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
-    nav a{padding:.55rem .8rem;border-radius:10px;text-decoration:none;color:var(--text);border:1px solid transparent}
-    nav a:hover{border-color:var(--border);background:rgba(255,255,255,.06)}
-    .cta{background:linear-gradient(135deg,var(--brand),var(--accent));color:#04121b;border:none;padding:.7rem 1rem;border-radius:12px;font-weight:700;letter-spacing:.2px;cursor:pointer}
 
-    /* Hero */
-    .hero{position:relative;overflow:hidden}
-    .hero .bg{position:absolute;inset:0;z-index:-2;background:
-            radial-gradient(1200px 700px at 10% 10%, rgba(25,178,255,.15), transparent 60%),
-            radial-gradient(900px 600px at 90% 20%, rgba(0,224,164,.18), transparent 55%),
-            url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-      filter:saturate(1.1) contrast(1.05)
+    html {
+      scroll-behavior: smooth;
     }
-    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.85))}
-    .hero .content{padding:96px 0 72px}
-    .badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.06);padding:.4rem .7rem;font-size:.9rem;color:#cfe7f7}
-    .badge b{color:var(--gold)}
-    h1.hero-title{font-family:Poppins, Inter, sans-serif;font-weight:800;letter-spacing:.4px;font-size:clamp(1.8rem,4.6vw,3.2rem);margin:.6rem 0 .4rem}
-    .hero-sub{max-width:840px;color:var(--muted);line-height:1.6;font-size:1.05rem}
-    .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.1rem}
-    .btn-outline{border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text);padding:.75rem 1rem;border-radius:12px;font-weight:700}
 
-    /* Sections */
-    section{scroll-margin-top:80px}
-    .section{padding:64px 0}
-    .section h2{font-family:Poppins, Inter, sans-serif;font-size:clamp(1.4rem,3vw,2rem);margin:0 0 .5rem}
-    .section p.lead{color:var(--muted);max-width:800px}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: #fff;
+    }
 
-    .grid{display:grid;gap:1rem}
-    @media(min-width:720px){.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}}
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .card .pad{padding:1rem}
-    .chip{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);background:rgba(255,255,255,.06);border-radius:999px;padding:.25rem .55rem;font-size:.8rem}
+    /* Header & Navigation - UPDATED SECTION */
+    header {
+      background: var(--header-dark-bg); /* CHANGED */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adjusted shadow */
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
 
-    .price{font-weight:800;font-size:1.2rem;color:var(--gold)}
+    header.scrolled {
+      background: rgba(44, 62, 80, 0.95); /* CHANGED */
+      backdrop-filter: blur(5px);
+    }
 
-    .muted{color:var(--muted)}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
 
-    /* Timeline */
-    .timeline{display:grid;gap:1rem}
-    .step{display:flex;gap:.8rem}
-    .dot{width:14px;height:14px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--accent));flex:0 0 auto;margin-top:.3rem}
-    .step h4{margin:.1rem 0 .2rem;font-size:1.05rem}
-    .step p{margin:0;color:var(--muted)}
+    .logo {
+      display: flex;
+      align-items: center;
+    }
 
-    /* FAQ */
-    details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem}
-    details+details{margin-top:.6rem}
-    summary{font-weight:700;cursor:pointer}
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-light); /* CHANGED */
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-light); /* CHANGED */
+      font-weight: 600;
+      transition: color 0.3s ease;
+      padding-bottom: 5px;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--secondary-color); /* CHANGED for better contrast */
+      border-bottom-color: var(--secondary-color); /* CHANGED */
+    }
+    /* End of Updated Section */
+
+    /* Hero Section */
+    #home {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    #home h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+    }
+
+    #home p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #005f8d;
+      transform: translateY(-2px);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 80px 0;
+    }
+
+    section:nth-child(even) {
+      background: var(--background-light);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: var(--primary-color);
+    }
+
+    /* About Section */
+    #about .about-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    #about .about-text {
+      flex: 1;
+    }
+
+    #about .about-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    #about img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+
+    /* Destinations Section */
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact Section */
+    #contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    #contact-form textarea {
+      resize: vertical;
+    }
+
+    #contact-form button {
+      cursor: pointer;
+      border: none;
+    }
 
     /* Footer */
-    footer{padding:40px 0;border-top:1px solid var(--border);color:var(--muted)}
-    .cols{display:grid;gap:1rem}
-    @media(min-width:820px){.cols{grid-template-columns:2fr 1fr 1fr}}
+    footer {
+      background: var(--text-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 30px 0;
+    }
 
-    /* Util */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+      }
+
+      nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+
+      #home {
+        padding-top: 120px; /* Adjust for stacked nav */
+      }
+
+      #home h1 {
+        font-size: 2.5rem;
+      }
+
+      #home p {
+        font-size: 1.2rem;
+      }
+
+      #about .about-content {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-<!-- NAV -->
-<header class="nav">
-  <div class="container nav-inner">
-    <a href="#home" class="brand" aria-label="Halloluwa Tours home">
-      <div class="brand-mark" aria-hidden="true"><img src="images/logo/logo.png" alt="" role="presentation"></div>
-      <span>Halloluwa Tours</span>
+
+<header id="header">
+  <nav class="container">
+    <a href="#home" class="logo">
+      <img src="images/logo/Logo.png" alt="Halloluwa Tours Logo">
+
     </a>
-    <nav aria-label="Main">
-      <ul>
-        <li><a href="#destinations">Destinations</a></li>
-        <li><a href="#packages">Packages</a></li>
-        <li><a href="#how">How it Works</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </nav>
-    <a class="cta" href="#contact">Book a Group</a>
-  </div>
+    <ul>
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About Us</a></li>
+      <li><a href="#destinations" class="nav-link">Destinations</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="bg"></div>
-  <div class="overlay"></div>
-  <div class="container content">
-    <span class="badge"><b>30+ years</b> of leading group tours</span>
-    <h1 class="hero-title">Unforgettable Group Tours from Sri Lanka</h1>
-    <p class="hero-sub">Explore <b>India</b>, <b>Thailand</b>, <b>Singapore</b>, and <b>Malaysia</b> with a trusted Sri Lankan operator. Fixed departures, hand‑picked hotels, curated sightseeing, and bilingual tour leaders who know the routes by heart.</p>
-    <div class="hero-actions">
-      <a class="cta" href="#packages">View Packages</a>
-      <a class="btn-outline" href="#contact">Get a Quote</a>
+<main>
+  <section id="home">
+    <h1>Experience Asia's Wonders Together</h1>
+    <p>Your expert guides for unforgettable group tours from Sri Lanka.</p>
+    <a href="#destinations" class="btn">Explore Our Tours</a>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Halloluwa Tours</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Welcome to <strong>Halloluwa Tours</strong>, your premier travel partner specializing in curated group tours from Sri Lanka to Asia's most captivating destinations. We believe that travel is best shared, creating memories that last a lifetime.</p>
+          <br>
+          <p>Our passion is crafting seamless, enriching, and fun-filled group travel experiences. From handling all the logistics to providing expert local guides, we ensure your journey is comfortable, safe, and truly authentic. Join our community of happy travelers and let us show you the magic of Thailand, the diversity of India, the modernity of Singapore, and the beauty of Malaysia.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?q=80&w=1994&auto=format&fit=crop" alt="Happy group of tourists">
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- DESTINATIONS -->
-<section id="destinations" class="section">
-  <div class="container">
-    <h2>Top Destinations</h2>
-    <p class="lead">Our most loved group routes from Sri Lanka. All packages include hotels, transfers, curated activities, and a dedicated tour leader.</p>
-    <div class="grid grid-4" style="margin-top:1rem">
-      <!-- India -->
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop" alt="Taj Mahal in India at sunrise" />
-        <div class="pad">
-          <div class="chip" aria-label="Country">🇮🇳 India</div>
-          <h3>Golden Triangle</h3>
-          <p class="muted">Delhi · Agra · Jaipur · 6N/7D</p>
-          <p class="price">From LKR 285,000</p>
+  <section id="destinations">
+    <div class="container">
+      <h2 class="section-title">Our Destinations</h2>
+      <div class="destinations-grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop" alt="Grand Palace in Bangkok, Thailand">
+          <div class="card-content">
+            <h3>Thailand</h3>
+            <p>The Land of Smiles awaits! Explore bustling markets, serene temples, and stunning beaches. A perfect blend of culture, cuisine, and adventure.</p>
+          </div>
         </div>
-      </article>
-      <!-- Thailand -->
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1518544801976-3e188ea1f9c4?q=80&w=1200&auto=format&fit=crop" alt="Longtail boats on turquoise water in Thailand" />
-        <div class="pad">
-          <div class="chip">🇹🇭 Thailand</div>
-          <h3>Bangkok & Phuket</h3>
-          <p class="muted">Temples · Markets · Beaches · 5N/6D</p>
-          <p class="price">From LKR 245,000</p>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2071&auto=format&fit=crop" alt="Taj Mahal in Agra, India">
+          <div class="card-content">
+            <h3>India</h3>
+            <p>A vibrant tapestry of cultures, colors, and history. From the iconic Taj Mahal to the spiritual banks of the Ganges, India's diversity will mesmerize you.</p>
+          </div>
         </div>
-      </article>
-      <!-- Singapore -->
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1549693578-d683be217e58?q=80&w=1200&auto=format&fit=crop" alt="Marina Bay skyline in Singapore at dusk" />
-        <div class="pad">
-          <div class="chip">🇸🇬 Singapore</div>
-          <h3>City Highlights</h3>
-          <p class="muted">Gardens by the Bay · Sentosa · 3N/4D</p>
-          <p class="price">From LKR 225,000</p>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1974&auto=format&fit=crop" alt="Gardens by the Bay in Singapore">
+          <div class="card-content">
+            <h3>Singapore</h3>
+            <p>Discover the futuristic "Lion City." Marvel at stunning architecture, indulge in world-class shopping, and savor a melting pot of culinary delights.</p>
+          </div>
         </div>
-      </article>
-      <!-- Malaysia -->
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop" alt="Petronas Twin Towers in Kuala Lumpur, Malaysia" />
-        <div class="pad">
-          <div class="chip">🇲🇾 Malaysia</div>
-          <h3>KL & Genting</h3>
-          <p class="muted">City · Highlands · 4N/5D</p>
-          <p class="price">From LKR 215,000</p>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=2070&auto=format&fit=crop" alt="Batu Caves in Malaysia">
+          <div class="card-content">
+            <h3>Malaysia</h3>
+            <p>A country of contrasts, where lush rainforests meet bustling cities. Explore cultural heritage in Penang and the modern marvel of Kuala Lumpur.</p>
+          </div>
         </div>
-      </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PACKAGES -->
-<section id="packages" class="section">
-  <div class="container">
-    <h2>Featured Group Packages</h2>
-    <p class="lead">Fixed departures every month. Prices include hotels, breakfast, airport transfers, selected activities, and a friendly tour leader.</p>
-    <div class="grid grid-3" style="margin-top:1rem">
-      <article class="card">
-        <div class="pad">
-          <div class="chip">🇮🇳 India · 7 Days</div>
-          <h3>Golden Triangle Express</h3>
-          <ul>
-            <li>3★/4★ hotels with breakfast</li>
-            <li>Guided tours: Red Fort, Taj Mahal, Amber Fort</li>
-            <li>AC coach, monument tickets</li>
-          </ul>
-          <p class="price">LKR 285,000 pp</p>
-          <a class="btn-outline" href="#contact">Enquire</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="pad">
-          <div class="chip">🇹🇭 Thailand · 6 Days</div>
-          <h3>Bangkok & Phuket Discovery</h3>
-          <ul>
-            <li>Island tour + Grand Palace</li>
-            <li>Airport ↔ hotel transfers</li>
-            <li>Optional: Phi Phi, Simon Cabaret</li>
-          </ul>
-          <p class="price">LKR 245,000 pp</p>
-          <a class="btn-outline" href="#contact">Enquire</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="pad">
-          <div class="chip">🇸🇬🇲🇾 SG + MY · 6 Days</div>
-          <h3>Singapore & Malaysia Combo</h3>
-          <ul>
-            <li>SG City tour + Sentosa</li>
-            <li>KL highlights + Genting</li>
-            <li>Intercity coach & transfers</li>
-          </ul>
-          <p class="price">LKR 395,000 pp</p>
-          <a class="btn-outline" href="#contact">Enquire</a>
-        </div>
-      </article>
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Memories from Our Tours</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541542159-82604b2c5d63?q=80&w=2070&auto=format&fit=crop" alt="Tourists in India"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=1935&auto=format&fit=crop" alt="Floating market in Thailand"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1579733036986-e55541a7f232?q=80&w=2014&auto=format&fit=crop" alt="Singapore skyline"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542060748-10c28b62716f?q=80&w=2070&auto=format&fit=crop" alt="Group photo"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1589412196621-c52934b5c7e1?q=80&w=1964&auto=format&fit=crop" alt="Temple in Malaysia"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1598380480392-aa79862f16e8?q=80&w=2070&auto=format&fit=crop" alt="Group enjoying a meal"></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- HOW IT WORKS -->
-<section id="how" class="section">
-  <div class="container">
-    <h2>How Group Tours Work</h2>
-    <p class="lead">Simple steps to join a departure from Sri Lanka. We manage the logistics so you can enjoy the journey.</p>
-    <div class="timeline" style="margin-top:.8rem">
-      <div class="step"><div class="dot"></div><div><h4>1. Pick a package</h4><p>Choose India, Thailand, Singapore, Malaysia, or a combo itinerary.</p></div></div>
-      <div class="step"><div class="dot"></div><div><h4>2. Reserve your seat</h4><p>Pay a small deposit to secure a fixed departure date.</p></div></div>
-      <div class="step"><div class="dot"></div><div><h4>3. Get trip briefing</h4><p>We share visas guidance, packing list, and hotel details.</p></div></div>
-      <div class="step"><div class="dot"></div><div><h4>4. Travel together</h4><p>Meet at BIA and fly with your group. Your tour leader handles everything.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="container">
-    <h2>Why Halloluwa Tours?</h2>
-    <p class="lead">We’ve spent <b>30+ years</b> guiding Sri Lankan travellers across Asia. Our speciality is <b>group travel</b>—great prices, smooth logistics, and friendly leaders.</p>
-    <div class="grid grid-3" style="margin-top:1rem">
-      <article class="card"><div class="pad"><h3>Experienced Leaders</h3><p class="muted">Veteran, bilingual tour leaders with deep destination knowledge.</p></div></article>
-      <article class="card"><div class="pad"><h3>Great Value</h3><p class="muted">Group rates on hotels & activities. Transparent pricing with no surprises.</p></div></article>
-      <article class="card"><div class="pad"><h3>Trusted by Families</h3><p class="muted">Thousands of happy travellers over three decades—many repeat guests.</p></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="section">
-  <div class="container">
-    <h2>Frequently Asked Questions</h2>
-    <details><summary>Do you arrange visas?</summary><p>We guide you through requirements and documentation. Some packages include visa processing; ask when booking.</p></details>
-    <details><summary>Are flights included?</summary><p>Many departures include return airfare from Colombo; where excluded, we will advise clearly.</p></details>
-    <details><summary>Can I travel solo in a group tour?</summary><p>Absolutely. We can arrange single rooms or match same‑gender room shares on request.</p></details>
-    <details><summary>What is the group size?</summary><p>Typically 18–36 travellers per tour leader for comfort and value.</p></details>
-  </div>
-</section>
-
-<!-- CONTACT / BOOKING -->
-<section id="contact" class="section">
-  <div class="container">
-    <h2>Enquire or Book</h2>
-    <p class="lead">Tell us your preferred destination and month. We’ll send the next group departure dates and a full quotation.</p>
-    <div class="grid" style="grid-template-columns:2fr 1fr;gap:1rem">
-      <form class="card pad" action="#" method="post" aria-label="Booking enquiry">
-        <div class="grid" style="grid-template-columns:1fr 1fr;gap:.6rem">
-          <label>
-            <span class="sr-only">Full name</span>
-            <input name="name" type="text" placeholder="Full name" required style="width:100%;padding:.9rem 1rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text)">
-          </label>
-          <label>
-            <span class="sr-only">Phone</span>
-            <input name="phone" type="tel" placeholder="Phone" required style="width:100%;padding:.9rem 1rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text)">
-          </label>
-        </div>
-        <div class="grid" style="grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem">
-          <label>
-            <span class="sr-only">Email</span>
-            <input name="email" type="email" placeholder="Email" required style="width:100%;padding:.9rem 1rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text)">
-          </label>
-          <label>
-            <span class="sr-only">Destination</span>
-            <select name="destination" required style="width:100%;padding:.9rem 1rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text)">
-              <option value="" disabled selected>Destination</option>
-              <option>India</option>
-              <option>Thailand</option>
-              <option>Singapore</option>
-              <option>Malaysia</option>
-              <option>Singapore + Malaysia</option>
-            </select>
-          </label>
-        </div>
-        <label style="display:block;margin-top:.6rem">
-          <span class="sr-only">Travel month</span>
-          <input name="month" type="text" placeholder="Preferred travel month (e.g., November)" style="width:100%;padding:.9rem 1rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text)">
-        </label>
-        <label style="display:block;margin-top:.6rem">
-          <span class="sr-only">Message</span>
-          <textarea name="message" rows="4" placeholder="Tell us number of travellers, rooming needs, or questions" style="width:100%;padding:.9rem 1rem;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text)"></textarea>
-        </label>
-        <div style="display:flex;gap:.6rem;align-items:center;margin-top:.8rem;flex-wrap:wrap">
-          <button class="cta" type="submit">Request Quote</button>
-          <span style="color:var(--muted);font-size:.9rem">We reply within 24 hours (Mon–Sat).</span>
-        </div>
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <p style="text-align: center; max-width: 600px; margin: 0 auto 30px;">Have questions or ready to book your next adventure? Send us a message, and we'll get back to you shortly!</p>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
       </form>
-      <aside class="card pad">
-        <h3 style="margin-top:0">Contact</h3>
-        <p class="muted">Colombo, Sri Lanka</p>
-        <p class="muted">WhatsApp / Viber: +94 XX XXX XXXX</p>
-        <p class="muted">Email: bookings@halloluwatours.lk</p>
-        <hr style="border-color:var(--border);border-width:0;border-top:1px solid var(--border);margin:1rem 0">
-        <h3 style="margin-top:0">Group Benefits</h3>
-        <ul>
-          <li>Early‑bird & family discounts</li>
-          <li>Free seat for large groups</li>
-          <li>Custom add‑ons for seniors & kids</li>
-        </ul>
-      </aside>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <footer>
-  <div class="container cols">
-    <div>
-      <div class="brand" style="margin-bottom:.4rem">
-        <div class="brand-mark" aria-hidden="true"><img src="images/logo/logo.png" alt="" role="presentation"></div>
-        <span>Halloluwa Tours</span>
-      </div>
-      <p class="muted">Group tours from Sri Lanka to India, Thailand, Singapore, and Malaysia. © <span id="year">2025</span></p>
-    </div>
-    <div>
-      <h4>Destinations</h4>
-      <ul style="list-style:none;padding:0;margin:0;line-height:1.9">
-        <li><a href="#destinations">India</a></li>
-        <li><a href="#destinations">Thailand</a></li>
-        <li><a href="#destinations">Singapore</a></li>
-        <li><a href="#destinations">Malaysia</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <ul style="list-style:none;padding:0;margin:0;line-height:1.9">
-        <li><a href="#about">About us</a></li>
-        <li><a href="#faq">FAQs</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+  <div class="container">
+    <p>&copy; 2025 Halloluwa Tours. All Rights Reserved.</p>
   </div>
 </footer>
 
 <script>
-  // Smooth scroll for same-page links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      const id = a.getAttribute('href');
-      const el = document.querySelector(id);
-      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
-    })
+  // JavaScript for interactivity
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Sticky Header ---
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // --- Active Navigation Link on Scroll ---
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.6
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === entry.target.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // --- Contact Form Submission ---
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // Prevents the default page reload
+      alert('Thank you for your message! We will get back to you soon.');
+      contactForm.reset(); // Clears the form fields
+    });
+
   });
-  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
