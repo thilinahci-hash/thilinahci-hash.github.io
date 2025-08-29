@@ -10,9 +10,9 @@
       --primary-color: #0077b6;
       --secondary-color: #70c1b3;
       --text-dark: #333;
-      --text-light: #f4f4f4; /* Made slightly softer than pure white */
+      --text-light: #f4f4f4;
       --background-light: #f8f9fa;
-      --header-dark-bg: #2c3e50; /* New dark color for the header */
+      --header-dark-bg: #2c3e50;
     }
 
     * {
@@ -38,10 +38,10 @@
       padding: 0 20px;
     }
 
-    /* Header & Navigation - UPDATED SECTION */
+    /* Header & Navigation */
     header {
-      background: var(--header-dark-bg); /* CHANGED */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adjusted shadow */
+      background: var(--header-dark-bg);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       position: fixed;
       width: 100%;
       top: 0;
@@ -51,7 +51,7 @@
     }
 
     header.scrolled {
-      background: rgba(44, 62, 80, 0.95); /* CHANGED */
+      background: rgba(44, 62, 80, 0.95);
       backdrop-filter: blur(5px);
     }
 
@@ -65,6 +65,7 @@
     .logo {
       display: flex;
       align-items: center;
+      text-decoration: none; /* Ensure logo link isn't underlined */
     }
 
     .logo img {
@@ -75,34 +76,50 @@
     .logo-text {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--text-light); /* CHANGED */
+      color: var(--text-light);
       text-transform: uppercase;
     }
 
-    nav ul {
+    #nav-links { /* Changed from nav ul */
       display: flex;
       list-style: none;
     }
 
-    nav ul li {
+    #nav-links li {
       margin-left: 25px;
     }
 
-    nav ul li a {
+    #nav-links li a {
       text-decoration: none;
-      color: var(--text-light); /* CHANGED */
+      color: var(--text-light);
       font-weight: 600;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
       padding-bottom: 5px;
       border-bottom: 2px solid transparent;
     }
 
-    nav ul li a:hover,
-    nav ul li a.active {
-      color: var(--secondary-color); /* CHANGED for better contrast */
-      border-bottom-color: var(--secondary-color); /* CHANGED */
+    #nav-links li a:hover,
+    #nav-links li a.active {
+      color: var(--secondary-color);
+      border-bottom-color: var(--secondary-color);
     }
-    /* End of Updated Section */
+
+    /* Hamburger Menu - NEW */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition: all 0.3s ease-in-out;
+      background-color: var(--text-light);
+    }
 
     /* Hero Section */
     #home {
@@ -180,7 +197,6 @@
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-
 
     /* Destinations Section */
     .destinations-grid {
@@ -274,27 +290,40 @@
       padding: 30px 0;
     }
 
-    /* Responsive Design */
+    /* Responsive Design - UPDATED FOR HAMBURGER */
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        height: auto;
-        padding: 15px 0;
+      .hamburger {
+        display: block; /* Show hamburger on mobile */
       }
 
-      nav ul {
+      .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      #nav-links {
+        position: fixed;
+        left: -100%; /* Start off-screen */
+        top: 70px; /* Below the header */
+        gap: 0;
         flex-direction: column;
-        margin-top: 15px;
+        background-color: var(--header-dark-bg);
         width: 100%;
         text-align: center;
+        transition: 0.3s;
       }
 
-      nav ul li {
-        margin: 10px 0;
+      #nav-links li {
+        margin: 16px 0;
       }
 
-      #home {
-        padding-top: 120px; /* Adjust for stacked nav */
+      #nav-links.active {
+        left: 0; /* Slide in */
       }
 
       #home h1 {
@@ -319,13 +348,18 @@
       <img src="images/logo/Logo.png" alt="Halloluwa Tours Logo">
 
     </a>
-    <ul>
+    <ul id="nav-links">
       <li><a href="#home" class="nav-link">Home</a></li>
       <li><a href="#about" class="nav-link">About Us</a></li>
       <li><a href="#destinations" class="nav-link">Destinations</a></li>
       <li><a href="#gallery" class="nav-link">Gallery</a></li>
       <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
   </nav>
 </header>
 
@@ -358,31 +392,19 @@
       <div class="destinations-grid">
         <div class="card">
           <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop" alt="Grand Palace in Bangkok, Thailand">
-          <div class="card-content">
-            <h3>Thailand</h3>
-            <p>The Land of Smiles awaits! Explore bustling markets, serene temples, and stunning beaches. A perfect blend of culture, cuisine, and adventure.</p>
-          </div>
+          <div class="card-content"><h3>Thailand</h3><p>The Land of Smiles awaits! Explore bustling markets, serene temples, and stunning beaches. A perfect blend of culture, cuisine, and adventure.</p></div>
         </div>
         <div class="card">
           <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2071&auto=format&fit=crop" alt="Taj Mahal in Agra, India">
-          <div class="card-content">
-            <h3>India</h3>
-            <p>A vibrant tapestry of cultures, colors, and history. From the iconic Taj Mahal to the spiritual banks of the Ganges, India's diversity will mesmerize you.</p>
-          </div>
+          <div class="card-content"><h3>India</h3><p>A vibrant tapestry of cultures, colors, and history. From the iconic Taj Mahal to the spiritual banks of the Ganges, India's diversity will mesmerize you.</p></div>
         </div>
         <div class="card">
           <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=1974&auto=format&fit=crop" alt="Gardens by the Bay in Singapore">
-          <div class="card-content">
-            <h3>Singapore</h3>
-            <p>Discover the futuristic "Lion City." Marvel at stunning architecture, indulge in world-class shopping, and savor a melting pot of culinary delights.</p>
-          </div>
+          <div class="card-content"><h3>Singapore</h3><p>Discover the futuristic "Lion City." Marvel at stunning architecture, indulge in world-class shopping, and savor a melting pot of culinary delights.</p></div>
         </div>
         <div class="card">
           <img src="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=2070&auto=format&fit=crop" alt="Batu Caves in Malaysia">
-          <div class="card-content">
-            <h3>Malaysia</h3>
-            <p>A country of contrasts, where lush rainforests meet bustling cities. Explore cultural heritage in Penang and the modern marvel of Kuala Lumpur.</p>
-          </div>
+          <div class="card-content"><h3>Malaysia</h3><p>A country of contrasts, where lush rainforests meet bustling cities. Explore cultural heritage in Penang and the modern marvel of Kuala Lumpur.</p></div>
         </div>
       </div>
     </div>
@@ -438,18 +460,14 @@
 
     // --- Active Navigation Link on Scroll ---
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinksObserver = document.querySelectorAll('#nav-links a');
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.6
-    };
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.6 };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          navLinks.forEach(link => {
+          navLinksObserver.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href').substring(1) === entry.target.id) {
               link.classList.add('active');
@@ -459,18 +477,34 @@
       });
     }, observerOptions);
 
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
 
     // --- Contact Form Submission ---
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // Prevents the default page reload
+      e.preventDefault();
       alert('Thank you for your message! We will get back to you soon.');
-      contactForm.reset(); // Clears the form fields
+      contactForm.reset();
     });
 
+    // --- Hamburger Menu Logic - NEW ---
+    const hamburger = document.getElementById('hamburger-button');
+    const navMenu = document.getElementById('nav-links');
+    const navMenuLinks = document.querySelectorAll('#nav-links li a');
+
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    navMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
   });
 </script>
 
